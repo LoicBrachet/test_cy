@@ -15,7 +15,7 @@ describe('Test2', ()=>{
     it('Valider un formulaire', ()=>{
     cy.visit('https://preprod.backmarket.fr/register')
     cy.get('#signup-password').click({force: true})
-      .type('faker.internet.password()')
-    cy.contains('Enchanté!').click({force: true})
+      .type('')
+    cy.contains('Enchantés').click({force: true})
     }) 
 })
