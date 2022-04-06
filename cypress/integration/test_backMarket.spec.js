@@ -1,13 +1,16 @@
 import { faker } from '@faker-js/faker';
-{/* <reference types = "cypress"/> */}
+/// <reference types = "cypress"/> 
   let firstName= faker.name.firstName();
   let lastName= faker.name.lastName();
   let email= faker.internet.email();
   let password= faker.internet.password()
 
-describe('Test passant: inscription', () => {
+describe('Tests backmarket', () => {
+   beforeEach(() => {
+    cy.visit("https://preprod.backmarket.fr/register");
+    cy.get('[data-qa="accept-cta"]').click({force: true})
+  });
   it('formulaire valide', () => {
-    cy.visit('https://preprod.backmarket.fr/register')
     cy.get('#firstName').click({force: true})
       .type(firstName)
     cy.get('#lastName').click({force: true})
@@ -17,11 +20,10 @@ describe('Test passant: inscription', () => {
     cy.get('#signup-password').click({force: true})
       .type(password)
     cy.contains('Enchantés').click({force: true})
+    cy.url().should('eq', 'https://preprod.backmarket.fr/dashboard/orders')
+    cy.contains('Chef, oui Chef !!').should('be.visible')
   })
-})
-describe('Test non-passant: inscription', ()=>{
     it('formulaire invalide', ()=>{
-    cy.visit('https://preprod.backmarket.fr/register')
      cy.get('#firstName').click({force: true})
       .type(firstName)
     cy.get('#lastName').click({force: true})
@@ -31,26 +33,24 @@ describe('Test non-passant: inscription', ()=>{
     cy.get('#signup-password').click({force: true})
       .type('')
     cy.contains('Enchantés').click({force: true})
+      cy.contains('Le champ mot de passe est obligatoire').should('be.visible')
+     
     }) 
-})
-describe('Test passant: connexion', ()=>{
     it('formulaire connexion valide', ()=>{
-    cy.visit('https://preprod.backmarket.fr/register')
-   
     cy.get('#signin-email').click({force: true})
       .type(email)
     cy.get('#signin-password').click({force: true})
       .type(password)
-    cy.contains('Enchantés').click({force: true})
+    cy.contains('Welcome Back').click({force: true})
+    cy.url().should('eq', 'https://preprod.backmarket.fr/dashboard/orders')
+    cy.contains('Chef, oui Chef !!').should('be.visible')
     }) 
-})
-describe('Test non-passant: connexion', ()=>{
     it('formulaire connexion invalide', ()=>{
-    cy.visit('https://preprod.backmarket.fr/register')
     cy.get('#signin-email').click({force: true})
       .type(email)
     cy.get('#signin-password').click({force: true})
       .type('')
-    cy.contains('Enchantés').click({force: true})
+    cy.contains('Welcome Back').click({force: true})
+    cy.contains('Le champ mot de passe est obligatoire').should('be.visible')
     }) 
 })
