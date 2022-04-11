@@ -31,7 +31,6 @@ describe('Tests backmarket', () => {
     cy.get('#signup-email').click({force: true})
       .type(email)
     cy.get('#signup-password').click({force: true})
-      .type('')
     cy.contains('Enchantés').click({force: true})
       cy.contains('Le champ mot de passe est obligatoire').should('be.visible')
      
@@ -49,7 +48,6 @@ describe('Tests backmarket', () => {
     cy.get('#signin-email').click({force: true})
       .type(email)
     cy.get('#signin-password').click({force: true})
-      .type('')
     cy.contains('Welcome Back').click({force: true})
     cy.contains('Le champ mot de passe est obligatoire').should('be.visible')
     }) 
