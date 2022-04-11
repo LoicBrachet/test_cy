@@ -1,3 +1,16 @@
 {
-    "projectId": "9ztwmr"
+    "projectId": "9ztwmr",
+"reporter": "mochawesome",
+
+"reporterOptions": {
+
+        "reportDir": "cypress/results",
+
+        "overwrite": false,
+
+        "html": true,
+
+        "json": true
+
+    }
 }

@@ -1,0 +1,171 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 2,
+    "pending": 0,
+    "failures": 2,
+    "start": "2022-04-11T12:58:30.640Z",
+    "end": "2022-04-11T12:59:36.366Z",
+    "duration": 65726,
+    "testsRegistered": 4,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c5086479-3cfc-44ac-9efe-aae748ca4aa1",
+      "title": "",
+      "fullFile": "cypress/integration/test_backMarket.spec.js",
+      "file": "cypress/integration/test_backMarket.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3b929245-e8d1-49c9-a046-982080a6a9b3",
+          "title": "Tests backmarket",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "formulaire valide",
+              "fullTitle": "Tests backmarket formulaire valide",
+              "timedOut": null,
+              "duration": 21047,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#firstName').click({\n  force: true\n}).type(firstName);\ncy.get('#lastName').click({\n  force: true\n}).type(lastName);\ncy.get('#signup-email').click({\n  force: true\n}).type(email);\ncy.get('#signup-password').click({\n  force: true\n}).type(password);\ncy.contains('Enchantés').click({\n  force: true\n});\ncy.url().should('eq', 'https://preprod.backmarket.fr/dashboard/orders');\ncy.contains('Chef, oui Chef !!').should('be.visible');",
+              "err": {},
+              "uuid": "c685072a-8f84-486d-a601-9c3bc474310f",
+              "parentUUID": "3b929245-e8d1-49c9-a046-982080a6a9b3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "formulaire invalide",
+              "fullTitle": "Tests backmarket formulaire invalide",
+              "timedOut": null,
+              "duration": 9993,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#firstName').click({\n  force: true\n}).type(firstName);\ncy.get('#lastName').click({\n  force: true\n}).type(lastName);\ncy.get('#signup-email').click({\n  force: true\n}).type(email);\ncy.get('#signup-password').click({\n  force: true\n}).type('');\ncy.contains('Enchantés').click({\n  force: true\n});\ncy.contains('Le champ mot de passe est obligatoire').should('be.visible');",
+              "err": {
+                "message": "CypressError: `cy.type()` cannot accept an empty string. You need to actually type something.\n\nhttps://on.cypress.io/type",
+                "estack": "CypressError: `cy.type()` cannot accept an empty string. You need to actually type something.\n\nhttps://on.cypress.io/type\n    at Context.type (https://preprod.backmarket.fr/__cypress/runner/cypress_runner.js:154724:76)\n    at Context.<anonymous> (https://preprod.backmarket.fr/__cypress/runner/cypress_runner.js:173242:19)\nFrom Your Spec Code:\n    at Context.eval (https://preprod.backmarket.fr/__cypress/tests?p=cypress\\integration\\test_backMarket.spec.js:148:8)",
+                "diff": null
+              },
+              "uuid": "6c1dbd7a-a44b-4f21-9233-f7417e43ba47",
+              "parentUUID": "3b929245-e8d1-49c9-a046-982080a6a9b3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "formulaire connexion valide",
+              "fullTitle": "Tests backmarket formulaire connexion valide",
+              "timedOut": null,
+              "duration": 14980,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#signin-email').click({\n  force: true\n}).type(email);\ncy.get('#signin-password').click({\n  force: true\n}).type(password);\ncy.contains('Welcome Back').click({\n  force: true\n});\ncy.url().should('eq', 'https://preprod.backmarket.fr/dashboard/orders');\ncy.contains('Chef, oui Chef !!').should('be.visible');",
+              "err": {},
+              "uuid": "13c447a0-74a0-4d10-b491-c9565fcf00b6",
+              "parentUUID": "3b929245-e8d1-49c9-a046-982080a6a9b3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "formulaire connexion invalide",
+              "fullTitle": "Tests backmarket formulaire connexion invalide",
+              "timedOut": null,
+              "duration": 9243,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#signin-email').click({\n  force: true\n}).type(email);\ncy.get('#signin-password').click({\n  force: true\n}).type('');\ncy.contains('Welcome Back').click({\n  force: true\n});\ncy.contains('Le champ mot de passe est obligatoire').should('be.visible');",
+              "err": {
+                "message": "CypressError: `cy.type()` cannot accept an empty string. You need to actually type something.\n\nhttps://on.cypress.io/type",
+                "estack": "CypressError: `cy.type()` cannot accept an empty string. You need to actually type something.\n\nhttps://on.cypress.io/type\n    at Context.type (https://preprod.backmarket.fr/__cypress/runner/cypress_runner.js:154724:76)\n    at Context.<anonymous> (https://preprod.backmarket.fr/__cypress/runner/cypress_runner.js:173242:19)\nFrom Your Spec Code:\n    at Context.eval (https://preprod.backmarket.fr/__cypress/tests?p=cypress\\integration\\test_backMarket.spec.js:173:8)",
+                "diff": null
+              },
+              "uuid": "60353034-91b8-42d2-893c-3c247db54385",
+              "parentUUID": "3b929245-e8d1-49c9-a046-982080a6a9b3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c685072a-8f84-486d-a601-9c3bc474310f",
+            "13c447a0-74a0-4d10-b491-c9565fcf00b6"
+          ],
+          "failures": [
+            "6c1dbd7a-a44b-4f21-9233-f7417e43ba47",
+            "60353034-91b8-42d2-893c-3c247db54385"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 55263,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
