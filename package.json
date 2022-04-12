@@ -9,7 +9,8 @@
 
     "generateReport": "npx mochawesome-merge 'cypress/results/*.json' > mochawesome.json && npx marge mochawesome.json",
 
-    "cy:run:report" : "npm run cy:run && npm run generateReport"
+    "cy:run:report" : "npm run cy:run && npm run generateReport",
+    "cy:open": "cypress open"
 
   },
   "repository": {
